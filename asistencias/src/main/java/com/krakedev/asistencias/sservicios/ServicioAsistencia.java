@@ -48,7 +48,7 @@ public class ServicioAsistencia {
 		
 		for(RegistroAsistencia registro : registros) {
 			
-			if(registro.getAsistencia().equals(cedula)) {
+			if(registro.getEstudiante().getCedula().equals(cedula)) {
 				asistencias.add(registro.getAsistencia());
 			}
 		}

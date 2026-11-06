@@ -15,6 +15,7 @@ import com.krakedev.asistencias.entidades.Estudiante;
 import com.krakedev.asistencias.sservicios.ServicioEstudiantes;
 
 @RestController
+
 @RequestMapping("/estudiantes")
 
 public class ControladorEstudiantes {
@@ -26,9 +27,9 @@ public class ControladorEstudiantes {
     }
 
     @PostMapping
-    public void agregar(@RequestBody Estudiante estudiante) {
+    public Estudiante agregar(@RequestBody Estudiante estudiante) {
 
-        servicioEstudiantes.agregar(estudiante);
+        return servicioEstudiantes.agregar(estudiante);
     }
 
     @GetMapping
@@ -44,15 +45,15 @@ public class ControladorEstudiantes {
     }
 
     @PutMapping("/{cedula}")
-    public void actualizar(@PathVariable String cedula,
+    public Estudiante actualizar(@PathVariable String cedula,
             @RequestBody Estudiante nuevo) {
 
-        servicioEstudiantes.actualizar(cedula, nuevo);
+        return servicioEstudiantes.actualizar(cedula, nuevo);
     }
 
     @DeleteMapping("/{cedula}")
-    public void eliminar(@PathVariable String cedula) {
+    public boolean eliminar(@PathVariable String cedula) {
 
-        servicioEstudiantes.eliminar(cedula);
+        return servicioEstudiantes.eliminar(cedula);
     }
 }
